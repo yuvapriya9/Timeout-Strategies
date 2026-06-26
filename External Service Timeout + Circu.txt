@@ -1,0 +1,22 @@
+3. External Service Timeout + Circuit Breaker Flow
+
+
+Flow Explanation:
+
+Start
+  ↓
+Check Circuit State
+  ↓
+Is Circuit Closed?
+   → No → Return Fallback Response → End
+   → Yes → Call External Service
+                  ↓
+           Response Received?
+             → Yes → Success → End
+             → No  → Timeout Occurred
+                          ↓
+                   Increment Failure Count
+                          ↓
+                Threshold Reached?
+                   → Yes → Open Circuit
+                   → No  → Retry

@@ -1,0 +1,18 @@
+2. Database Query Timeout Flow
+
+
+Flow Explanation:
+
+Start
+  ↓
+Execute Query
+  ↓
+Monitor Execution Time
+  ↓
+Timeout Exceeded?
+   → No → Continue Execution → Return Result → End
+   → Yes → Cancel Query
+                ↓
+          Log Timeout Event
+                ↓
+        Return Error / Retry → End

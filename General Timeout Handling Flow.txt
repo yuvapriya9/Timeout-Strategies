@@ -1,0 +1,18 @@
+4. General Timeout Handling Flow 
+
+
+Flow Explanation:
+
+Start
+  ↓
+Initiate Operation
+  ↓
+Set Timeout Limit
+  ↓
+Operation Completed?
+   → Yes → Return Success → End
+   → No  → Timeout Occurred
+                ↓
+        Retry Allowed?
+           → Yes → Retry with Backoff
+           → No  → Execute Fallback / Return Error → End

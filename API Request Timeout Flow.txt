@@ -1,0 +1,15 @@
+1.API Request Timeout Flow
+
+Start
+  ↓
+Send API Request
+  ↓
+Wait for Response
+  ↓
+Is Response Received Before Timeout?
+   → Yes → Process Response → End
+   → No  → Retry?
+              ↓
+        Retry Limit Reached?
+           → No → Retry Request
+           → Yes → Return Error / Fallback → End
